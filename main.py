@@ -23,6 +23,7 @@ if numero < 10000000:
     abaco = [0] * 7
     rec = 6
     abacoDib = [""] * 7
+    number = ""
 
     # Asignar el número introducido en la lista para definir el ábaco
     for x in range(len(numero)-1, -1, -1):
@@ -43,3 +44,14 @@ if numero < 10000000:
     # Imprimimos el ábaco
     for i in range(7):
         print(abacoDib[i])
+        number += str(len(abacoDib[i].split("---")[0]))
+
+    number = int(number)
+    number = str(number)
+    if len(number) > 3:
+        number = number[::-1]
+        number = number[:3] + "." + number[3:]
+        number = number[::-1]
+        if len(number) > 6:
+            number = number[0] + "." + number[1:]
+    print('El número introducido es:', number)
